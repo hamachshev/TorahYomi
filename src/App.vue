@@ -1,44 +1,38 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router'
-import Header from './components/Header.vue'
+import { RouterLink, RouterView } from "vue-router";
+import Header from "./components/Header.vue";
 
-  export default {
+export default {
   data() {
     return {
-      showDropList: false
-    }
+      showDropList: false,
+    };
   },
   methods: {
-      open() {
-        this.showDropList = true
-        console.log("open");
+    open() {
+      this.showDropList = true;
+      console.log("open");
     },
-    close(){
-      this.showDropList = false
-    }
+    close() {
+      this.showDropList = false;
     },
-    components:{
-      RouterLink,
-      RouterView,
-      Header
-    }
-  }
+  },
+  components: {
+    RouterLink,
+    RouterView,
+    Header,
+  },
+};
 </script>
 
 <template>
-<Header/>
+  <Header />
 
-
-
-
-<nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-
-
+  <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/about">About</RouterLink>
+    <RouterLink to="/login">Login</RouterLink>
+  </nav>
 
   <RouterView />
 </template>
-
-
