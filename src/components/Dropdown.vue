@@ -41,6 +41,7 @@ export default {
   color: white;
   padding: 16px;
   margin: 10px;
+  margin-top: 0px;
   margin-bottom: 0;
   font-size: 16px;
   border: none;
