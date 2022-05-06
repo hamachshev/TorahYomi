@@ -2,56 +2,42 @@
 export default {
   data() {
     return {
-      showDropList: false
-    }
+      showDropList: false,
+    };
   },
   methods: {
-      open() {
-        this.showDropList = true
-        console.log("open");
+    open() {
+      this.showDropList = true;
     },
-    close(){
-      this.showDropList = false
-    }
-    }
-  }
+    close() {
+      this.showDropList = false;
+    },
+  },
+};
 </script>
 
 <template>
-<div  class="dropdown" >
-  <button @mouseenter="open" @mouseleave="close" class="dropbtn">Learning options</button>
-  <div v-if="showDropList" @mouseenter="open" @mouseleave="close" id="myDropdown" class="dropdown-content">
-    <a href="#">Daf Yomi</a>
-    <a href="#">Nach Yomi</a>
-    <a href="#">Daily Mishnah Brurah</a>
+  <div class="dropdown">
+    <button @mouseenter="open" @mouseleave="close" class="dropbtn">
+      Learning options
+    </button>
+    <div
+      v-if="showDropList"
+      @mouseenter="open"
+      @mouseleave="close"
+      id="myDropdown"
+      class="dropdown-content"
+    >
+      <a href="#">Daf Yomi</a>
+      <a href="#">Nach Yomi</a>
+      <a href="#">Daily Mishnah Brurah</a>
+    </div>
   </div>
-</div>
-
-<div class="footer">
-  <p>Sponsered in the memory of Gershon Yosef Ben Yisrael Moshe  </p>
-  
-
-</div>
 </template>
 
 <style scoped>
-
-/* <---Added---> */
-.footer{
-  display: flex;
-  align-items: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  justify-content: space-between;
-  background-color: #01ADEE;
-  margin: 0;
-  padding: 0;
-}
-/* Dropdown Button */
 .dropbtn {
-  background-color: #3498DB;
+  background-color: #3498db;
   color: white;
   padding: 16px;
   margin: 10px;
@@ -62,8 +48,9 @@ export default {
 }
 
 /* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980b9;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -74,11 +61,10 @@ export default {
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
- 
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -91,7 +77,7 @@ export default {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
-
-
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 </style>

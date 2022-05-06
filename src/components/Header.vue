@@ -44,10 +44,12 @@ export default {
 </script>
 <template>
   <div class="header">
-    <div class="image">
-      <img src="/loigoi.jpeg" />
-      <h1>Torah Yomi</h1>
-    </div>
+    <RouterLink to="/" class="heroLogo">
+      <div class="image">
+        <img src="/loigoi.jpeg" />
+        <h1>Torah Yomi</h1>
+      </div>
+    </RouterLink>
 
     <form>
       <input />
@@ -71,6 +73,8 @@ export default {
   background-color: #01adee;
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  font-family: sans-serif;
 }
 img {
   width: 100px;
@@ -90,5 +94,10 @@ img {
 }
 a {
   color: whitesmoke;
+  text-decoration: none;
+}
+.heroLogo {
+  color: blue;
+  text-decoration: none;
 }
 </style>
