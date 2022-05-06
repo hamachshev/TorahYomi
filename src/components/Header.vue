@@ -2,6 +2,7 @@
 import Dropdown from "./Dropdown.vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { RouterLink } from "vue-router";
+import Search from "./Search.vue";
 
 export default {
   data() {
@@ -12,6 +13,7 @@ export default {
   components: {
     Dropdown,
     RouterLink,
+    Search,
   },
   mounted() {
     const auth = getAuth();
@@ -24,7 +26,10 @@ export default {
   },
   computed: {
     isUser() {
-      return this.user.email;
+      return this.user.email ? true : false;
+    },
+    isNotUser() {
+      return this.user.email ? false : true;
     },
   },
   methods: {
@@ -34,6 +39,7 @@ export default {
         .then(() => {
           console.log("logged out");
           this.user = {};
+          console.log(this.isUser());
         })
         .catch((error) => {
           console.log(e);
@@ -50,17 +56,16 @@ export default {
         <h1>Torah Yomi</h1>
       </div>
     </RouterLink>
-
-    <form>
-      <input />
-      <button type="submit">Search</button>
-    </form>
-
+    <Search />
     <div class="links">
-      <RouterLink to="/login">Login</RouterLink>
       <Dropdown />
-      <a href="#" v-if="isUser" @click.prevent="logout">Logout</a>
-      {{ user.email }}
+      <RouterLink to="/login" v-if="isNotUser" class="loginLink"
+        >Login</RouterLink
+      >
+      <a href="#" v-if="isUser" @click.prevent="logout" class="loginLink"
+        >Logout</a
+      >
+      <p class="user" v-if="isUser">Welcome {{ user.email }}!</p>
     </div>
   </div>
 </template>
@@ -99,5 +104,14 @@ a {
 .heroLogo {
   color: blue;
   text-decoration: none;
+}
+.user {
+  font-family: sans-serif;
+  text-align: center;
+  color: whitesmoke;
+  padding-right: 25px;
+}
+.loginLink {
+  padding: 25px;
 }
 </style>
