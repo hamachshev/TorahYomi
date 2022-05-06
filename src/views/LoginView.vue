@@ -11,11 +11,13 @@ export default {
   methods: {
     onSubmit() {
       const auth = getAuth();
+      console.log(this.email, this.password);
       signInWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
           // ...
+          console.log("signed in");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -29,8 +31,8 @@ export default {
 <template>
   <div>
     <form type="submit" @submit.prevent="onSubmit">
-      <input />
-      <input type="password" />
+      <input v-model="email" />
+      <input type="password" v-model="password" />
       <button type="submit">go</button>
     </form>
   </div>
