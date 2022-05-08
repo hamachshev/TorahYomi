@@ -36,7 +36,7 @@ export default {
       const auth = getAuth();
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          this.$router.push({ path: "/" });
+          this.$router.push({ path: "/account" });
         }
       });
     },
