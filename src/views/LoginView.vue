@@ -1,7 +1,7 @@
 <script>
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import Datepicker from '@vuepic/vue-datepicker';
-import '@vuepic/vue-datepicker/dist/main.css'
+import Datepicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
 export default {
   components: { Datepicker },
   data() {
@@ -36,8 +36,8 @@ export default {
 <template>
   <div>
     <form type="submit" @submit.prevent="onSubmit">
-      <input v-model="first_name"/>
-      <input v-model="last_name">
+      <input v-model="first_name" />
+      <input v-model="last_name" />
       <Datepicker v-model="date" week-start="0"></Datepicker>
       <input v-model="email" />
       <input type="password" v-model="password" />
