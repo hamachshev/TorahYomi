@@ -5,22 +5,29 @@ export default {
     return {
       limud: {},
       arrayLimud: [],
+      route: this.$route.params.limud,
     };
   },
-  mounted() {
-    axios
-      .get(`https://sefaria.org/api/texts/${this.$route.params.limud}`)
-      .then(({ data }) => {
-        this.limud = data;
-        let array = [];
-        // if (this.type === "ArrayOfArrays") {
-        //   data.he.forEach((e) => e.forEach((element) => array.push(element)));
-        // } else {
-        data.he.forEach((e) => array.push(e));
-        // }
-        console.log(array);
-        this.arrayLimud = array.join();
-      });
+
+  watch: {
+    "$route.params": {
+      handler() {
+        axios
+          .get(`https://sefaria.org/api/texts/${this.$route.params.limud}`)
+          .then(({ data }) => {
+            this.limud = data;
+            let array = [];
+            // if (this.type === "ArrayOfArrays") {
+            //   data.he.forEach((e) => e.forEach((element) => array.push(element)));
+            // } else {
+            data.he.forEach((e) => array.push(e));
+            // }
+            console.log(array);
+            this.arrayLimud = array.join();
+          });
+      },
+      immediate: true,
+    },
   },
 };
 </script>
