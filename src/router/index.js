@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import CreateAccountView from "../views/CreateAccountView.vue";
-
+import NachYomi from "../views/NachYomi.vue";
+import SubjectView from "../views/SubjectView.vue";
+import LimudView from "../views/LimudView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -28,6 +30,20 @@ const router = createRouter({
       path: "/createAccount",
       name: "createAccount",
       component: CreateAccountView,
+    },
+    {
+      path: "/NachYomi",
+      name: "NachYomi",
+      component: NachYomi,
+    },
+    {
+      path: "/subjects",
+      name: "subjects",
+      component: SubjectView,
+    },
+    {
+      path: "/subjects/:limud",
+      component: LimudView,
     },
   ],
 });
