@@ -1,5 +1,9 @@
 <script>
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 
 export default {
   data() {
@@ -23,10 +27,22 @@ export default {
           const errorMessage = error.message;
           console.log(errorMessage);
         });
+      this.redirectIfSignedIn();
     },
     log() {
       console.log(this.email);
     },
+    redirectIfSignedIn() {
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.$router.push({ path: "/" });
+        }
+      });
+    },
+  },
+  mounted() {
+    this.redirectIfSignedIn();
   },
 };
 </script>

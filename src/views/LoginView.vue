@@ -1,5 +1,9 @@
 <script>
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 import Datepicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 export default {
@@ -29,7 +33,19 @@ export default {
           const errorMessage = error.message;
           console.log(errorMessage);
         });
+      this.redirectIfSignedIn();
     },
+    redirectIfSignedIn() {
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.$router.push({ path: "/" });
+        }
+      });
+    },
+  },
+  mounted() {
+    this.redirectIfSignedIn();
   },
 };
 </script>
