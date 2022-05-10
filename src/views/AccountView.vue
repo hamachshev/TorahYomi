@@ -44,6 +44,10 @@ export default {
         }
       });
     },
+    go() {
+      this.$router.push({ path: "/update" });
+      console.log("going");
+    },
   },
   watch: {
     uid() {
@@ -97,4 +101,5 @@ export default {
     </li>
   </ul>
   <RouterLink to="/subjects">All Limudim</RouterLink>
+  <button @click="go">Update or Add Limudim</button>
 </template>

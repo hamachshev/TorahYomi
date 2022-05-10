@@ -6,7 +6,14 @@ import {
 } from "firebase/auth";
 import axios from "axios";
 import db from "../../store/firestore";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  setDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
 
 export default {
   props: ["type"],
@@ -45,21 +52,33 @@ export default {
         }
       });
     },
+
     async initialize() {
       console.log("working initialize");
 
       try {
-        const docRef = await addDoc(collection(db, "users2"), {
+        const usersRef = collection(db, "users2");
+        const uid = this.user.uid;
+        const docRef = await setDoc(doc(usersRef, uid), {
           user: this.user.uid,
           subjects: this.checked,
         });
-        console.log("Document written with ID: ", docRef.id);
+        console.log("Document written with ID: ");
         this.$router.push({ path: "/" });
       } catch (e) {
         console.error("Error adding document: ", e);
       }
     },
-    update() {},
+    async update() {
+      const uid = this.user.uid;
+      const doc1 = doc(db, "users2", uid);
+
+      await updateDoc(doc1, {
+        subjects: this.checked,
+      });
+      console.log("worked");
+      this.$router.push({ path: "/" });
+    },
   },
 };
 </script>
