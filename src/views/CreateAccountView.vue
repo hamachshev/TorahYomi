@@ -27,16 +27,24 @@ export default {
           const errorMessage = error.message;
           console.log(errorMessage);
         });
-      this.redirectIfSignedIn();
+      this.redirectIfCreated();
     },
     log() {
       console.log(this.email);
+    },
+    redirectIfCreated() {
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.$router.push({ path: "/onboarding" });
+        }
+      });
     },
     redirectIfSignedIn() {
       const auth = getAuth();
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          this.$router.push({ path: "/account" });
+          this.$router.push({ path: "/" });
         }
       });
     },
