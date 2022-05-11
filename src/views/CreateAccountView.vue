@@ -41,9 +41,9 @@ export default {
           const errorMessage = error.message;
           console.log(errorMessage);
         });
-<<<<<<< HEAD
+
       this.redirectIfCreated();
-=======
+
       // validate the first name entry
       if (this.first_name === "") {
         this.fNameMessage = "This field is required.";
@@ -91,7 +91,7 @@ export default {
         event.preventDefault()
       }
       this.redirectIfSignedIn();
->>>>>>> 9e8ea2c75a01cae5b4b6a09f125436a73a6bcf2b
+
     },
     log() {
       console.log(this.email);
