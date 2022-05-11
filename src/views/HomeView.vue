@@ -1,3 +1,9 @@
+<script>
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 
 <script>
 
@@ -34,7 +40,30 @@
   }
  }
 </script>
-<template>
 
-  <iframe @click="srcList[src]" style="height:fit-content;width:fit-content;" title="description"></iframe>
+
+ 
+import Carousel from "../components/Carousel.vue";
+
+export default {
+  mounted() {
+    this.redirectIfSignedIn();
+  },
+  methods: {
+    redirectIfSignedIn() {
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.$router.push({ path: "/account" });
+        }
+      });
+    },
+  },
+  components: { Carousel },
+};
+</script>
+
+<template>
+ <iframe @click="srcList[src]" style="height:fit-content;width:fit-content;" title="description"></iframe>
+  <Carousel />
 </template>

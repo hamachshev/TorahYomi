@@ -44,7 +44,7 @@ export default {
           console.log(this.isUser());
         })
         .catch((error) => {
-          console.log(e);
+          console.log(error);
         });
     },
   },

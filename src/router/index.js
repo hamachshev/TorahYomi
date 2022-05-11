@@ -6,6 +6,9 @@ import NachYomi from "../views/NachYomi.vue";
 import SubjectView from "../views/SubjectView.vue";
 import LimudView from "../views/LimudView.vue";
 import AccountView from "../views/AccountView.vue";
+import OnboardingView from "../views/OnboardingView.vue";
+import EditSubjects from "../views/EditSubjects.vue";
+import UpdateLimudim from "../views/UpdateLimudim.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -49,6 +52,18 @@ const router = createRouter({
     {
       path: "/account",
       component: AccountView,
+    },
+    {
+      path: "/onboarding",
+      component: OnboardingView,
+    },
+    {
+      path: "/editsubjects",
+      component: EditSubjects,
+    },
+    {
+      path: "/update",
+      component: UpdateLimudim,
     },
   ],
 });

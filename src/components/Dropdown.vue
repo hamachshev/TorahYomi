@@ -1,8 +1,13 @@
 <script>
+import { RouterLink } from "vue-router";
+import axios from "axios";
+
 export default {
   data() {
     return {
       showDropList: false,
+      limudim: [],
+      noChok: [],
     };
   },
   methods: {
@@ -12,6 +17,20 @@ export default {
     close() {
       this.showDropList = false;
     },
+    makeLink(limud) {
+      console.log("making link");
+
+      return `/subjects/${limud.url}`;
+    },
+  },
+  mounted() {
+    axios.get("https://www.sefaria.org/api/calendars").then(({ data }) => {
+      this.noChok = data.calendar_items.filter(
+        (e) => e.title.en !== "Chok LeYisrael"
+      );
+      this.limudim = data.calendar_items;
+      console.log(this.limudim);
+    });
   },
 };
 </script>
@@ -28,9 +47,10 @@ export default {
       id="myDropdown"
       class="dropdown-content"
     >
-      <a href="#">Daf Yomi</a>
-      <a href="#">Nach Yomi</a>
-      <a href="#">Daily Mishnah Brurah</a>
+      <RouterLink v-for="limud in noChok" :to="makeLink(limud)">{{
+        limud.title.he
+      }}</RouterLink>
+      <RouterLink to="/subjects">All Subjects</RouterLink>
     </div>
   </div>
 </template>

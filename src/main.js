@@ -11,6 +11,10 @@ Vue.use(IconsPlugin)
 
 
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
+import "./services/limudService";
+import "../store/firestore";
 const app = createApp(App);
 
 
