@@ -28,7 +28,9 @@ export default {
 </script>
 
 <template>
+  <b-container fluid>
   <Header />
   <RouterView />
   <Footer />
+  </b-container>
 </template>

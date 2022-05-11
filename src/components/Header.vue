@@ -49,6 +49,7 @@ export default {
 };
 </script>
 <template>
+  <b-container fluid>
   <div class="header">
     <RouterLink to="/" class="heroLogo">
       <div class="image">
@@ -59,6 +60,7 @@ export default {
     <Search />
     <div class="links">
       <Dropdown />
+      <RouterLink to="/createAccount" v-if="isNotUser" class="registerLink">Register</RouterLink>
       <RouterLink to="/login" v-if="isNotUser" class="loginLink"
         >Login</RouterLink
       >
@@ -68,6 +70,7 @@ export default {
       <p class="user" v-if="isUser">Welcome {{ user.email }}!</p>
     </div>
   </div>
+  </b-container>
 </template>
 
 <style scoped>
@@ -112,6 +115,9 @@ a {
   padding-right: 25px;
 }
 .loginLink {
+  padding: 25px;
+}
+.registerLink{
   padding: 25px;
 }
 </style>
