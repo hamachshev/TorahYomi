@@ -4,6 +4,8 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { RouterLink } from "vue-router";
 import Search from "./Search.vue";
 
+
+
 export default {
   data() {
     return {
@@ -49,7 +51,8 @@ export default {
 };
 </script>
 <template>
-  <b-container fluid>
+  <b-container>
+    <b-row>
   <div class="header">
     <RouterLink to="/" class="heroLogo">
       <div class="image">
@@ -70,6 +73,7 @@ export default {
       <p class="user" v-if="isUser">Welcome {{ user.email }}!</p>
     </div>
   </div>
+   </b-row>
   </b-container>
 </template>
 
