@@ -5,10 +5,27 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-<script>
 
- export default {
-   data() {
+import Carousel from "../components/Carousel.vue";
+
+export default {
+  mounted() {
+    this.redirectIfSignedIn();
+  },
+  methods: {
+    redirectIfSignedIn() {
+      const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          this.$router.push({ path: "/account" });
+        }
+      });
+    },
+    updateDaf() {
+      setInterval(function(){this.src++; },this.dayInMilliseconds) }
+  },
+  components: { Carousel },
+  data() {
     return {
       src: 0,
       dayInMilliseconds : 1000 * 60 * 60 * 24,
@@ -33,35 +50,13 @@ import {
 //       ]
     }
   },
-   methods: {
-      updateDaf() {
-     setInterval(function(){this.src++; },this.dayInMilliseconds) }
-
-  }
  }
 </script>
 
 
  
-import Carousel from "../components/Carousel.vue";
 
-export default {
-  mounted() {
-    this.redirectIfSignedIn();
-  },
-  methods: {
-    redirectIfSignedIn() {
-      const auth = getAuth();
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          this.$router.push({ path: "/account" });
-        }
-      });
-    },
-  },
-  components: { Carousel },
-};
-</script>
+
 
 <template>
  <iframe @click="srcList[src]" style="height:fit-content;width:fit-content;" title="description"></iframe>
