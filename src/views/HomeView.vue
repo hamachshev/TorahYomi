@@ -5,6 +5,8 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
+import Carousel from "../components/Carousel.vue";
+
 export default {
   mounted() {
     this.redirectIfSignedIn();
@@ -19,5 +21,10 @@ export default {
       });
     },
   },
+  components: { Carousel },
 };
 </script>
+
+<template>
+  <Carousel />
+</template>
