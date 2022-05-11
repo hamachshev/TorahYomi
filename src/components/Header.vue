@@ -51,8 +51,6 @@ export default {
 };
 </script>
 <template>
-  <b-container>
-    <b-row>
   <div class="header">
     <RouterLink to="/" class="heroLogo">
       <div class="image">
@@ -73,8 +71,6 @@ export default {
       <p class="user" v-if="isUser">Welcome {{ user.email }}!</p>
     </div>
   </div>
-   </b-row>
-  </b-container>
 </template>
 
 <style scoped>
