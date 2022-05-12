@@ -12,7 +12,7 @@
 }
 .search {
   background-color: white;
-  background-image: url("/search.svg");
+  background-image: url("public/search.svg");
   background-position: 8px 10px;
   background-repeat: no-repeat;
   background-size: 5%;

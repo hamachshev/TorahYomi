@@ -23,7 +23,9 @@ export default {
       email1Message: "*",
       email2Message: "*",
       passMessage: "*",
+      numMessage: "*",
       isValid: true,
+      phoneNumber: null,
     };
   },
   methods: {
@@ -57,6 +59,16 @@ export default {
         this.isValid = false;
       } else {
         this.lNameMessage = "";
+      }
+      //number check
+      if (Number.isNaN(this.phoneNumber)){
+        this.numMessage = "must be a number",
+            this.isValid = false
+      }else if (this.phoneNumber.length < 9){
+        this.numMessage = "must be a nine digit number",
+            this.isValid = false
+      }else {
+        this.numMessage = ""
       }
       //email1 check
       if (this.email1 === "") {
@@ -115,11 +127,15 @@ export default {
   },
   mounted() {
     this.redirectIfSignedIn();
+    // $(document).ready(function() {
+    //   $("#my_date_picker").datepicker();
+    //   $("")
+     // });
+
   },
 };
 </script>
 <template>
-  <b-container fluid>
     <form
         class="row gy-2 gx-3 align-items-center"
         type="submit"
@@ -145,10 +161,18 @@ export default {
       </div>
       <div class="col-auto">
         <div class="form-outline">
+          <label class="form-label" for="number">Phone Number: </label>
+          <input class="form-control-sm" v-model.trim="phoneNumber" id="number" />
+          <span>{{ numMessage }}</span>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="form-outline">
           <div class="row">
             <div class="col align-self-auto"><p>Enter your DOB:</p></div>
             <div class="col align-self-auto">
               <Datepicker v-model="date" week-start="0"></Datepicker>
+              <input type="text" id="my_date_picker">
             </div>
             <span class="col align-self-auto">{{ ageMessage }}</span>
           </div>
@@ -187,7 +211,6 @@ export default {
         <button class="btn btn-primary btn-md w-50" type="submit">Login</button>
       </div>
     </form>
-  </b-container>
 </template>
 <style>span {
   color: red;

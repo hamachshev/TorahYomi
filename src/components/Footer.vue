@@ -1,3 +1,12 @@
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  }
+}
+</script>
 <template>
   <div class="footer">
     <p>Sponsored in the memory of Gershon Yosef Ben Yisrael Moshe</p>

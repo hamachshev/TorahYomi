@@ -10,6 +10,10 @@ export default {
   data() {
     return {
       user: {},
+      num1: null,
+      num2: null,
+      sum: null,
+
     };
   },
   components: {
@@ -25,6 +29,28 @@ export default {
         console.log(user);
       }
     });
+    //window.$ = window.jQuery = require('jquery');
+    // $(document).ready(function () {
+    //   $("#logo").button();
+    //   $("#logo").click(function (){
+    //     $("#dialog-message").dialog({
+    //       modal: true,
+    //
+    //       buttons: {
+    //         Exit: function () {
+    //           $(this).dialog("close");
+    //         }
+    //       }
+    //     });
+     // })
+    //   $("#enter").button();
+    //   $("#enter").click(function (){
+    //     let n1 = $("num1").val();
+    //     let n2 = $("num2").val();
+    //     $("#sum").val(n1 + n2);
+    //     console.log(n1)
+    //   });
+    //});
   },
   computed: {
     isUser() {
@@ -35,6 +61,13 @@ export default {
     },
   },
   methods: {
+    // calculate(){
+    //     let num1 = $("num1").val();
+    //     let num2 = $("num2").val();
+    //     this.sum = this.num1 + this.num2;
+
+
+    },
     logout() {
       const auth = getAuth();
       signOut(auth)
@@ -47,18 +80,27 @@ export default {
           console.log(error);
         });
     },
-  },
+
 };
 </script>
 <template>
   <div class="header">
     <RouterLink to="/" class="heroLogo">
       <div class="image">
-        <img src="/loigoi.jpeg" />
-        <h1>Torah Yomi</h1>
+       <img  src="/loigoi.jpeg" />
+<!--        <div id="dialog-message"  style="display: none">-->
+<!--          <p>-->
+<!--            <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>-->
+<!--            You found the secret button! Enjoy a calculator!</p>-->
+<!--          <input v-model.number="num1" id="num1" placeholder="ex. 999"   /> + <input v-model.number="num2" id="num2" placeholder="ex. 999"  /> = <p id="sum" >{{sum}}</p>-->
+<!--          <button id="enter" @click="calculate">Enter</button>-->
+
+
+
+        <a id="logo"><h1>Torah Yomi</h1></a>
       </div>
     </RouterLink>
-    <Search />
+     <Search />
     <div class="links">
       <Dropdown />
       <RouterLink to="/createAccount" v-if="isNotUser" class="registerLink">Register</RouterLink>
@@ -120,4 +162,13 @@ a {
 .registerLink{
   padding: 25px;
 }
+#sum{
+  background-color: #dddddd;
+  width: 67.5%;
+}
+#dialog-message,span.ui-icon-circle-check,.ui-dialog-content,.ui-dialog-buttonset{
+  background-color: chartreuse;
+  color: blue;
+}
+/*#dialog-message,.ui-dialog,.ui-widget, .ui-widget-content, .ui-corner-all, .foo, .ui-draggable, .ui-resizable {background:yellow !important}*/
 </style>
