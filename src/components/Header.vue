@@ -4,8 +4,6 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { RouterLink } from "vue-router";
 import Search from "./Search.vue";
 
-
-
 export default {
   data() {
     return {
@@ -13,7 +11,6 @@ export default {
       num1: null,
       num2: null,
       sum: null,
-
     };
   },
   components: {
@@ -42,7 +39,7 @@ export default {
     //         }
     //       }
     //     });
-     // })
+    // })
     //   $("#enter").button();
     //   $("#enter").click(function (){
     //     let n1 = $("num1").val();
@@ -66,9 +63,8 @@ export default {
     //     let num2 = $("num2").val();
     //     this.sum = this.num1 + this.num2;
 
-
-    },
     logout() {
+      console.log("hello");
       const auth = getAuth();
       signOut(auth)
         .then(() => {
@@ -80,30 +76,30 @@ export default {
           console.log(error);
         });
     },
-
+  },
 };
 </script>
 <template>
   <div class="header">
     <RouterLink to="/" class="heroLogo">
       <div class="image">
-       <img  src="/loigoi.jpeg" />
-<!--        <div id="dialog-message"  style="display: none">-->
-<!--          <p>-->
-<!--            <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>-->
-<!--            You found the secret button! Enjoy a calculator!</p>-->
-<!--          <input v-model.number="num1" id="num1" placeholder="ex. 999"   /> + <input v-model.number="num2" id="num2" placeholder="ex. 999"  /> = <p id="sum" >{{sum}}</p>-->
-<!--          <button id="enter" @click="calculate">Enter</button>-->
-
-
+        <img src="/loigoi.jpeg" />
+        <!--        <div id="dialog-message"  style="display: none">-->
+        <!--          <p>-->
+        <!--            <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>-->
+        <!--            You found the secret button! Enjoy a calculator!</p>-->
+        <!--          <input v-model.number="num1" id="num1" placeholder="ex. 999"   /> + <input v-model.number="num2" id="num2" placeholder="ex. 999"  /> = <p id="sum" >{{sum}}</p>-->
+        <!--          <button id="enter" @click="calculate">Enter</button>-->
 
         <a id="logo"><h1>Torah Yomi</h1></a>
       </div>
     </RouterLink>
-     <Search />
+    <Search />
     <div class="links">
       <Dropdown />
-      <RouterLink to="/createAccount" v-if="isNotUser" class="registerLink">Register</RouterLink>
+      <RouterLink to="/createAccount" v-if="isNotUser" class="registerLink"
+        >Register</RouterLink
+      >
       <RouterLink to="/login" v-if="isNotUser" class="loginLink"
         >Login</RouterLink
       >
@@ -159,14 +155,17 @@ a {
 .loginLink {
   padding: 25px;
 }
-.registerLink{
+.registerLink {
   padding: 25px;
 }
-#sum{
+#sum {
   background-color: #dddddd;
   width: 67.5%;
 }
-#dialog-message,span.ui-icon-circle-check,.ui-dialog-content,.ui-dialog-buttonset{
+#dialog-message,
+span.ui-icon-circle-check,
+.ui-dialog-content,
+.ui-dialog-buttonset {
   background-color: chartreuse;
   color: blue;
 }
