@@ -36,6 +36,7 @@ export default {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+          this.$router.push({ path: "/onboarding" });
           // ...
         })
         .catch((error) => {
@@ -61,30 +62,29 @@ export default {
         this.lNameMessage = "";
       }
       //number check
-      if (Number.isNaN(this.phoneNumber)){
-        this.numMessage = "must be a number",
-            this.isValid = false
-      }else if (this.phoneNumber.length < 9){
-        this.numMessage = "must be a nine digit number",
-            this.isValid = false
-      }else {
-        this.numMessage = ""
+      if (Number.isNaN(this.phoneNumber)) {
+        (this.numMessage = "must be a number"), (this.isValid = false);
+      } else if (this.phoneNumber.length < 9) {
+        (this.numMessage = "must be a nine digit number"),
+          (this.isValid = false);
+      } else {
+        this.numMessage = "";
       }
       //email1 check
       if (this.email1 === "") {
-        this.email1Message = "This field is required.",
-            this.isValid = false
-      } else if ( !this.emailPattern.test(this.email1) ) {
-        this.email1Message = "Must be a valid email address.",
-            this.isValid = false
+        (this.email1Message = "This field is required."),
+          (this.isValid = false);
+      } else if (!this.emailPattern.test(this.email1)) {
+        (this.email1Message = "Must be a valid email address."),
+          (this.isValid = false);
       } else {
-        this.email1Message = ""
+        this.email1Message = "";
       }
       // validate the second email entry
       if (this.email2 === "") {
         this.email2Message = "This field is required.";
         this.isValid = false;
-      } else if (this.email2 !== this.email1 ) {
+      } else if (this.email2 !== this.email1) {
         this.email2Message = "Must equal first email entry.";
         this.isValid = false;
       } else {
@@ -93,17 +93,16 @@ export default {
       if (this.password === "") {
         this.passMessage = "This field is required.";
         this.isValid = false;
-      }else if (this.password.length < 6){
+      } else if (this.password.length < 6) {
         this.passMessage = "Password must be at least six characters";
         this.isValid = false;
       } else {
         this.passMessage = "";
       }
       if (this.isValid === false) {
-        event.preventDefault()
+        event.preventDefault();
       }
       this.redirectIfSignedIn();
-
     },
     log() {
       console.log(this.email);
@@ -130,89 +129,85 @@ export default {
     // $(document).ready(function() {
     //   $("#my_date_picker").datepicker();
     //   $("")
-     // });
-
+    // });
   },
 };
 </script>
 <template>
-    <form
-        class="row gy-2 gx-3 align-items-center"
-        type="submit"
-        @submit.prevent="onSubmit($event)"
-    >
-      <div class="col-auto">
-        <div class="form-outline">
-          <label class="form-label" for="f_name"> First Name: </label>
-          <input
-              class="form-control-sm"
-              v-model.trim="first_name"
-              id="f_name"
-          />
-          <span>{{ fNameMessage }}</span>
-        </div>
+  <form
+    class="row gy-2 gx-3 align-items-center"
+    type="submit"
+    @submit.prevent="onSubmit($event)"
+  >
+    <div class="col-auto">
+      <div class="form-outline">
+        <label class="form-label" for="f_name"> First Name: </label>
+        <input class="form-control-sm" v-model.trim="first_name" id="f_name" />
+        <span>{{ fNameMessage }}</span>
       </div>
-      <div class="col-auto">
-        <div class="form-outline">
-          <label class="form-label" for="l_name">Last Name: </label>
-          <input class="form-control-sm" v-model.trim="last_name" id="l_name" />
-          <span>{{ lNameMessage }}</span>
-        </div>
+    </div>
+    <div class="col-auto">
+      <div class="form-outline">
+        <label class="form-label" for="l_name">Last Name: </label>
+        <input class="form-control-sm" v-model.trim="last_name" id="l_name" />
+        <span>{{ lNameMessage }}</span>
       </div>
-      <div class="col-auto">
-        <div class="form-outline">
-          <label class="form-label" for="number">Phone Number: </label>
-          <input class="form-control-sm" v-model.trim="phoneNumber" id="number" />
-          <span>{{ numMessage }}</span>
-        </div>
+    </div>
+    <div class="col-auto">
+      <div class="form-outline">
+        <label class="form-label" for="number">Phone Number: </label>
+        <input class="form-control-sm" v-model.trim="phoneNumber" id="number" />
+        <span>{{ numMessage }}</span>
       </div>
-      <div class="col-auto">
-        <div class="form-outline">
-          <div class="row">
-            <div class="col align-self-auto"><p>Enter your DOB:</p></div>
-            <div class="col align-self-auto">
-              <Datepicker v-model="date" week-start="0"></Datepicker>
-              <input type="text" id="my_date_picker">
-            </div>
-            <span class="col align-self-auto">{{ ageMessage }}</span>
+    </div>
+    <div class="col-auto">
+      <div class="form-outline">
+        <div class="row">
+          <div class="col align-self-auto"><p>Enter your DOB:</p></div>
+          <div class="col align-self-auto">
+            <Datepicker v-model="date" week-start="0"></Datepicker>
+            <input type="text" id="my_date_picker" />
           </div>
+          <span class="col align-self-auto">{{ ageMessage }}</span>
         </div>
       </div>
-      <hr />
-      <div class="col-auto">
-        <div class="form-outline">
-          <label class="form-label" for="email1"> Email Address: </label>
-          <input id="email1" class="form-control-sm" v-model.trim="email1" />
-          <span>{{ email1Message }}</span>
-        </div>
+    </div>
+    <hr />
+    <div class="col-auto">
+      <div class="form-outline">
+        <label class="form-label" for="email1"> Email Address: </label>
+        <input id="email1" class="form-control-sm" v-model.trim="email1" />
+        <span>{{ email1Message }}</span>
       </div>
-      <div class="col-auto">
-        <div class="form-outline">
-          <label class="form-label" for="email2">Confirm Email: </label>
-          <input id="email2" class="form-control-sm" v-model.trim="email2" />
-          <span>{{ email2Message }}</span>
-        </div>
+    </div>
+    <div class="col-auto">
+      <div class="form-outline">
+        <label class="form-label" for="email2">Confirm Email: </label>
+        <input id="email2" class="form-control-sm" v-model.trim="email2" />
+        <span>{{ email2Message }}</span>
       </div>
-      <div class="col-auto">
-        <div class="form-outline">
-          <label class="form-control-sm" for="password">
-            Password (six characters):
-          </label>
-          <input
-              id="password"
-              class="form-control-sm"
-              type="password"
-              v-model.trim="password"
-          />
-          <span>{{ passMessage }}</span>
-        </div>
+    </div>
+    <div class="col-auto">
+      <div class="form-outline">
+        <label class="form-control-sm" for="password">
+          Password (six characters):
+        </label>
+        <input
+          id="password"
+          class="form-control-sm"
+          type="password"
+          v-model.trim="password"
+        />
+        <span>{{ passMessage }}</span>
       </div>
-      <div class="row">
-        <button class="btn btn-primary btn-md w-50" type="submit">Login</button>
-      </div>
-    </form>
+    </div>
+    <div class="row">
+      <button class="btn btn-primary btn-md w-50" type="submit">Login</button>
+    </div>
+  </form>
 </template>
-<style>span {
+<style>
+span {
   color: red;
 }
 </style>

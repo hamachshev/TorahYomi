@@ -19,6 +19,7 @@
     "vue-iframes": "^0.0.19",
     "vue-l-carousel": "^1.1.0",
     "vue-router": "^4.0.14",
+    "vue-search-input": "^1.1.4",
     "vue3-carousel": "^0.1.40"
   },
   "devDependencies": {
