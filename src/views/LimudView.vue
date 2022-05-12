@@ -12,6 +12,7 @@ export default {
   watch: {
     "$route.params": {
       handler() {
+        const progress = this.$progress.start();
         axios
           .get(`https://sefaria.org/api/texts/${this.$route.params.limud}`)
           .then(({ data }) => {
@@ -25,6 +26,7 @@ export default {
             console.log(array);
             this.arrayLimud = array.join();
           });
+        progress.finish();
       },
       immediate: true,
     },
