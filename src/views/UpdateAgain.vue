@@ -1,5 +1,6 @@
 <script>
 import SubjectChooser from "../components/SubjectChooser.vue";
+
 export default {
   components: {
     SubjectChooser,
