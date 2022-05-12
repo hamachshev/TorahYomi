@@ -8,7 +8,7 @@ import LimudView from "../views/LimudView.vue";
 import AccountView from "../views/AccountView.vue";
 import OnboardingView from "../views/OnboardingView.vue";
 import EditSubjects from "../views/EditSubjects.vue";
-import UpdateLimudim from "/src/views/UpdateLimudim2.vue";
+import UpdateLimudim from "../views/Update.Vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
