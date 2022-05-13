@@ -2,7 +2,9 @@
 import Dropdown from "./Dropdown.vue";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { RouterLink } from "vue-router";
-import Search from "./Search.vue";
+// import Search from "./Search.vue";
+
+import Search2 from "./Search2.vue";
 
 export default {
   data() {
@@ -14,7 +16,8 @@ export default {
   components: {
     Dropdown,
     RouterLink,
-    Search,
+
+    Search2,
   },
   mounted() {
     const auth = getAuth();
@@ -92,7 +95,7 @@ export default {
         <h1>Torah Yomi</h1>
       </div>
     </RouterLink>
-    <Search />
+    <Search2 />
     <div class="links">
       <Dropdown />
       <RouterLink to="/createAccount" v-if="isNotUser" class="registerLink"
@@ -117,6 +120,7 @@ export default {
   background-color: #01adee;
   margin: 0;
   padding: 0;
+  width: 100%;
   text-decoration: none;
   font-family: sans-serif;
 }

@@ -9,6 +9,8 @@ import {
 import Carousel from "../components/Carousel.vue";
 
 
+
+
 export default {
   mounted() {
     this.redirectIfSignedIn();
@@ -44,7 +46,7 @@ export default {
     // updateDaf() {
     //   setInterval(function(){this.src++; },this.dayInMilliseconds) }
   },
-  components: { Carousel },
+  components: { Carousel},
   data() {
     return {
       src: 0,
@@ -93,7 +95,6 @@ export default {
       <br>anything from Talmud to Tanya on websites including <a href="https://www.torahanytime.com/"> Torah Anytime, </a> <a href=https://www.chabad.com/> Chabad</a>,
       and many other sites you can find by searching the web.</p>
   </div>
-
 
 </template>
 <style scoped>
