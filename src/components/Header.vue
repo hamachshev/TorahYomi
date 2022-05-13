@@ -8,9 +8,7 @@ export default {
   data() {
     return {
       user: {},
-      num1: null,
-      num2: null,
-      sum: null,
+
     };
   },
   components: {

@@ -172,7 +172,7 @@ export default {
             <div class="col align-self-auto"><p>Enter your DOB:</p></div>
             <div class="col align-self-auto">
               <Datepicker v-model="date" week-start="0"></Datepicker>
-              <input type="text" id="my_date_picker">
+
             </div>
             <span class="col align-self-auto">{{ ageMessage }}</span>
           </div>
