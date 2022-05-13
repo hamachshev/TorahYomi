@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import { RouterLink } from "vue-router";
+
 export default {
   data() {
     return {
@@ -9,6 +10,7 @@ export default {
     };
   },
   mounted() {
+    const progress = this.$progress.start();
     axios.get("https://www.sefaria.org/api/calendars").then(({ data }) => {
       this.noChok = data.calendar_items.filter(
         (e) => e.title.en !== "Chok LeYisrael"
@@ -16,6 +18,7 @@ export default {
       this.limudim = data.calendar_items;
       console.log(this.limudim);
     });
+    progress.finish();
   },
   components: {
     RouterLink,

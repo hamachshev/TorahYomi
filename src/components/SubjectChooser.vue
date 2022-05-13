@@ -26,6 +26,7 @@ export default {
     };
   },
   mounted() {
+    const progress = this.$progress.start();
     this.redirectIfSignedOut();
 
     const auth = getAuth();
@@ -42,7 +43,9 @@ export default {
       this.limudim = data.calendar_items;
       console.log(this.limudim);
     });
+    progress.finish();
   },
+
   methods: {
     redirectIfSignedOut() {
       const auth = getAuth();
@@ -54,6 +57,7 @@ export default {
     },
 
     async initialize() {
+      const progress = this.$progress.start();
       console.log("working initialize");
 
       try {
@@ -68,8 +72,10 @@ export default {
       } catch (e) {
         console.error("Error adding document: ", e);
       }
+      progress.finish();
     },
     async update() {
+      const progress = this.$progress.start();
       const uid = this.user.uid;
       const doc1 = doc(db, "users2", uid);
 
@@ -78,6 +84,7 @@ export default {
       });
       console.log("worked");
       this.$router.push({ path: "/" });
+      progress.finish();
     },
   },
 };

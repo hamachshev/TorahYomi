@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import UpdateLimudim from "../views/UpdateAgain.vue";
 import LoginView from "../views/LoginView.vue";
 import CreateAccountView from "../views/CreateAccountView.vue";
 import NachYomi from "../views/NachYomi.vue";
@@ -8,7 +9,7 @@ import LimudView from "../views/LimudView.vue";
 import AccountView from "../views/AccountView.vue";
 import OnboardingView from "../views/OnboardingView.vue";
 import EditSubjects from "../views/EditSubjects.vue";
-import UpdateLimudim from "../views/UpdateLimudim.vue";
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
