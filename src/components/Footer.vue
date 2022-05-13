@@ -56,7 +56,7 @@ export default {
         <p>You found the secret button! Enjoy a calculator!</p>
 <!--          </div>-->
         <input v-model.number="num1"  placeholder="ex. 999"   /> + <input v-model.number="num2"  placeholder="ex. 999"  /> = <p id="sum" >{{sum}}</p>
-        <button id="enter" @click="calculate">Enter</button>
+        <button id="enter" @click="calculate">Add</button>
         <button @click="open = false">Close</button>
         </div>
         </div>
