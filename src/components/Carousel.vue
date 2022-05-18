@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       images: [
-        "/gemara.jpg",
+        "/public/gemara2.jpg",
         "/mishnah_brurah.jpg",
         "/mishnah.jpg",
         "/nach-yomi.jpg",

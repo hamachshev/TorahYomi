@@ -33,9 +33,11 @@ export default {
 };
 </script>
 <template>
+  <div class="col-md-12">
   <ul>
     <li v-for="limud in noChok">
       <RouterLink :to="makeLink(limud)">{{ limud.title.he }}</RouterLink>
     </li>
   </ul>
+  </div>
 </template>

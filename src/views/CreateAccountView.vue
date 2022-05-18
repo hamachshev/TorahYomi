@@ -62,7 +62,7 @@ export default {
         this.lNameMessage = "";
       }
       //number check
-      if (Number.isNaN(this.phoneNumber)) {
+      if (Number.isNaN(this.phoneNumber)|| this.phoneNumber == null) {
         (this.numMessage = "must be a number"), (this.isValid = false);
       } else if (this.phoneNumber.length < 9) {
         (this.numMessage = "must be a nine digit number"),
@@ -134,6 +134,7 @@ export default {
 };
 </script>
 <template>
+  <div class="col-md-12">
   <form
     class="row gy-2 gx-3 align-items-center"
     type="submit"
@@ -159,14 +160,17 @@ export default {
         <input class="form-control-sm" v-model.trim="phoneNumber" id="number" />
         <span>{{ numMessage }}</span>
       </div>
-    </div>
-    <div class="col-auto">
-      <div class="form-outline">
-        <div class="row">
-          <div class="col align-self-auto"><p>Enter your DOB:</p></div>
-          <div class="col align-self-auto">
-            <Datepicker v-model="date" week-start="0"></Datepicker>
-            <input type="text" id="my_date_picker" />
+
+      <div class="col-auto">
+        <div class="form-outline">
+          <div class="row">
+            <div class="col align-self-auto"><p>Enter your DOB:</p></div>
+            <div class="col align-self-auto">
+              <Datepicker v-model="date" week-start="0"></Datepicker>
+
+            </div>
+            <span class="col align-self-auto">{{ ageMessage }}</span>
+
           </div>
           <span class="col align-self-auto">{{ ageMessage }}</span>
         </div>
@@ -205,6 +209,7 @@ export default {
       <button class="btn btn-primary btn-md w-50" type="submit">Login</button>
     </div>
   </form>
+  </div>
 </template>
 <style>
 span {

@@ -34,8 +34,10 @@ export default {
 };
 </script>
 <template>
+  <div class="col-md-12">
   <h1>{{ limud.heRef }}</h1>
   <p v-html="arrayLimud" dir="rtl"></p>
+  </div>
 </template>
 <style scoped>
 p {
