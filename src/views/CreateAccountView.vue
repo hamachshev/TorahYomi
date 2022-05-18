@@ -62,7 +62,7 @@ export default {
         this.lNameMessage = "";
       }
       //number check
-      if (Number.isNaN(this.phoneNumber)) {
+      if (Number.isNaN(this.phoneNumber)|| this.phoneNumber == null) {
         (this.numMessage = "must be a number"), (this.isValid = false);
       } else if (this.phoneNumber.length < 9) {
         (this.numMessage = "must be a nine digit number"),
