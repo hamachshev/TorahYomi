@@ -65,6 +65,7 @@ export default {
 
 
 <template>
+  <div class="col-md-12">
   <Carousel />
   <button class="accordion">Who are the developers of Torah Yomi?</button>
   <div class="panel">
@@ -95,7 +96,7 @@ export default {
       <br>anything from Talmud to Tanya on websites including <a href="https://www.torahanytime.com/"> Torah Anytime, </a> <a href=https://www.chabad.com/> Chabad</a>,
       and many other sites you can find by searching the web.</p>
   </div>
-
+  </div>
 </template>
 <style scoped>
 .panel {

@@ -102,7 +102,7 @@ export default {
 };
 </script>
 <template>
-  <b-container fluid>
+  <div class="col-md-12">
     <form
       class="row gy-2 gx-3 align-items-center"
       type="submit"
@@ -170,7 +170,7 @@ export default {
       <button class="btn btn-primary btn-md w-50" type="submit">Login</button>
       </div>
     </form>
-  </b-container>
+  </div>
 </template>
 <style>
 span {

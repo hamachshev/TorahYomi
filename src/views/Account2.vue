@@ -69,6 +69,7 @@ export default {
 };
 </script>
 <template>
+  <div class="col-md-12">
   <h1>Welcome {{ user.email }} !!</h1>
   <form type="submit">
     <div v-for="limud in noChok">
@@ -79,4 +80,5 @@ export default {
   </form>
 
   {{ MyLimudimArray.subjects }}
+  </div>
 </template>

@@ -7,5 +7,8 @@ export default {
 };
 </script>
 <template>
+  <div class="col-md-12">
   <SubjectChooser type="edit" />
+  </div>
 </template>
+

@@ -28,10 +28,12 @@ export default {
 </script>
 
 <template>
+  <div class="col-md-12">
   <vue3-progress-bar></vue3-progress-bar>
   <Header />
   <RouterView />
   <Footer />
+  </div>
 </template>
 
 <style lang="scss">

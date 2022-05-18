@@ -81,6 +81,7 @@ export default {
 };
 </script>
 <template>
+  <div class="col-md-12">
   <div class="header">
     <RouterLink to="/" class="heroLogo">
       <div class="image">
@@ -109,6 +110,7 @@ export default {
       >
       <p class="user" v-if="isUser">Welcome {{ user.email }}!</p>
     </div>
+  </div>
   </div>
 </template>
 

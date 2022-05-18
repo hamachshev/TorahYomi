@@ -134,6 +134,7 @@ export default {
 };
 </script>
 <template>
+  <div class="col-md-12">
   <form
     class="row gy-2 gx-3 align-items-center"
     type="submit"
@@ -208,6 +209,7 @@ export default {
       <button class="btn btn-primary btn-md w-50" type="submit">Login</button>
     </div>
   </form>
+  </div>
 </template>
 <style>
 span {
