@@ -32,6 +32,7 @@ export default {
           // Signed in
           const user = userCredential.user;
           // ...
+
           console.log("signed in");
         })
         .catch((error) => {
@@ -55,13 +56,13 @@ export default {
       // }
       //email1 check
       if (this.email1 === "") {
-        this.email1Message = "This field is required.",
-            this.isValid = false
-      } else if ( !this.emailPattern.test(this.email1) ) {
-        this.email1Message = "Must be a valid email address.",
-            this.isValid = false
+        (this.email1Message = "This field is required."),
+          (this.isValid = false);
+      } else if (!this.emailPattern.test(this.email1)) {
+        (this.email1Message = "Must be a valid email address."),
+          (this.isValid = false);
       } else {
-        this.email1Message = ""
+        this.email1Message = "";
       }
       // validate the second email entry
       // if (this.email2 === "") {
@@ -76,14 +77,14 @@ export default {
       if (this.password === "") {
         this.passMessage = "This field is required.";
         this.isValid = false;
-      }else if (this.password.length < 6){
+      } else if (this.password.length < 6) {
         this.passMessage = "Password must be at least six characters";
         this.isValid = false;
       } else {
         this.passMessage = "";
       }
       if (this.isValid === false) {
-        event.preventDefault()
+        event.preventDefault();
       }
       this.redirectIfSignedIn();
     },
@@ -108,36 +109,36 @@ export default {
       type="submit"
       @submit.prevent="onSubmit($event)"
     >
-<!--      <div class="col-auto">-->
-<!--        <div class="form-outline">-->
-<!--          <label class="form-label" for="f_name"> First Name: </label>-->
-<!--          <input-->
-<!--            class="form-control-sm"-->
-<!--            v-model.trim="first_name"-->
-<!--            id="f_name"-->
-<!--          />-->
-<!--          <span>{{ fNameMessage }}</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-auto">-->
-<!--        <div class="form-outline">-->
-<!--          <label class="form-label" for="l_name">Last Name: </label>-->
-<!--          <input class="form-control-sm" v-model.trim="last_name" id="l_name" />-->
-<!--          <span>{{ lNameMessage }}</span>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-auto">-->
-<!--        <div class="form-outline">-->
-<!--          <div class="row">-->
-<!--            <div class="col align-self-auto"><p>Enter your DOB:</p></div>-->
-<!--            <div class="col align-self-auto">-->
-<!--              <Datepicker v-model="date" week-start="0"></Datepicker>-->
-<!--            </div>-->
-<!--            <span class="col align-self-auto">{{ ageMessage }}</span>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <hr />-->
+      <!--      <div class="col-auto">-->
+      <!--        <div class="form-outline">-->
+      <!--          <label class="form-label" for="f_name"> First Name: </label>-->
+      <!--          <input-->
+      <!--            class="form-control-sm"-->
+      <!--            v-model.trim="first_name"-->
+      <!--            id="f_name"-->
+      <!--          />-->
+      <!--          <span>{{ fNameMessage }}</span>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--      <div class="col-auto">-->
+      <!--        <div class="form-outline">-->
+      <!--          <label class="form-label" for="l_name">Last Name: </label>-->
+      <!--          <input class="form-control-sm" v-model.trim="last_name" id="l_name" />-->
+      <!--          <span>{{ lNameMessage }}</span>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--      <div class="col-auto">-->
+      <!--        <div class="form-outline">-->
+      <!--          <div class="row">-->
+      <!--            <div class="col align-self-auto"><p>Enter your DOB:</p></div>-->
+      <!--            <div class="col align-self-auto">-->
+      <!--              <Datepicker v-model="date" week-start="0"></Datepicker>-->
+      <!--            </div>-->
+      <!--            <span class="col align-self-auto">{{ ageMessage }}</span>-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--      <hr />-->
       <div class="col-auto">
         <div class="form-outline">
           <label class="form-label" for="email1"> Email Address: </label>
@@ -145,13 +146,13 @@ export default {
           <span>{{ email1Message }}</span>
         </div>
       </div>
-<!--      <div class="col-auto">-->
-<!--        <div class="form-outline">-->
-<!--          <label class="form-label" for="email2">Confirm Email: </label>-->
-<!--          <input id="email2" class="form-control-sm" v-model.trim="email2" />-->
-<!--          <span>{{ email2Message }}</span>-->
-<!--        </div>-->
-<!--      </div>-->
+      <!--      <div class="col-auto">-->
+      <!--        <div class="form-outline">-->
+      <!--          <label class="form-label" for="email2">Confirm Email: </label>-->
+      <!--          <input id="email2" class="form-control-sm" v-model.trim="email2" />-->
+      <!--          <span>{{ email2Message }}</span>-->
+      <!--        </div>-->
+      <!--      </div>-->
       <div class="col-auto">
         <div class="form-outline">
           <label class="form-control-sm" for="password">
@@ -167,7 +168,7 @@ export default {
         </div>
       </div>
       <div class="row">
-      <button class="btn btn-primary btn-md w-50" type="submit">Login</button>
+        <button class="btn btn-primary btn-md w-50" type="submit">Login</button>
       </div>
     </form>
   </div>

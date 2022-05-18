@@ -10,7 +10,6 @@ export default {
   data() {
     return {
       user: {},
-
     };
   },
   components: {
@@ -77,40 +76,43 @@ export default {
           console.log(error);
         });
     },
+    log() {
+      console.log("the header is ready your highness");
+    },
   },
 };
 </script>
 <template>
   <div class="col-md-12">
-  <div class="header">
-    <RouterLink to="/" class="heroLogo">
-      <div class="image">
-        <img src="/loigoi.jpeg" />
-        <!--        <div id="dialog-message"  style="display: none">-->
-        <!--          <p>-->
-        <!--            <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>-->
-        <!--            You found the secret button! Enjoy a calculator!</p>-->
-        <!--          <input v-model.number="num1" id="num1" placeholder="ex. 999"   /> + <input v-model.number="num2" id="num2" placeholder="ex. 999"  /> = <p id="sum" >{{sum}}</p>-->
-        <!--          <button id="enter" @click="calculate">Enter</button>-->
+    <div class="header">
+      <RouterLink to="/" class="heroLogo">
+        <div class="image">
+          <img src="/loigoi.jpeg" />
+          <!--        <div id="dialog-message"  style="display: none">-->
+          <!--          <p>-->
+          <!--            <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>-->
+          <!--            You found the secret button! Enjoy a calculator!</p>-->
+          <!--          <input v-model.number="num1" id="num1" placeholder="ex. 999"   /> + <input v-model.number="num2" id="num2" placeholder="ex. 999"  /> = <p id="sum" >{{sum}}</p>-->
+          <!--          <button id="enter" @click="calculate">Enter</button>-->
 
-        <h1>Torah Yomi</h1>
+          <h1>Torah Yomi</h1>
+        </div>
+      </RouterLink>
+      <Search2 />
+      <div class="links">
+        <Dropdown @loadedDataHeader="log" />
+        <RouterLink to="/createAccount" v-if="isNotUser" class="registerLink"
+          >Register</RouterLink
+        >
+        <RouterLink to="/login" v-if="isNotUser" class="loginLink"
+          >Login</RouterLink
+        >
+        <a href="#" v-if="isUser" @click.prevent="logout" class="loginLink"
+          >Logout</a
+        >
+        <p class="user" v-if="isUser">Welcome {{ user.email }}!</p>
       </div>
-    </RouterLink>
-    <Search2 />
-    <div class="links">
-      <Dropdown />
-      <RouterLink to="/createAccount" v-if="isNotUser" class="registerLink"
-        >Register</RouterLink
-      >
-      <RouterLink to="/login" v-if="isNotUser" class="loginLink"
-        >Login</RouterLink
-      >
-      <a href="#" v-if="isUser" @click.prevent="logout" class="loginLink"
-        >Logout</a
-      >
-      <p class="user" v-if="isUser">Welcome {{ user.email }}!</p>
     </div>
-  </div>
   </div>
 </template>
 

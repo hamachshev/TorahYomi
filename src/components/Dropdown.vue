@@ -30,6 +30,7 @@ export default {
       );
       this.limudim = data.calendar_items;
       console.log(this.limudim);
+      this.$emit("loadedDataHeader");
     });
   },
 };
